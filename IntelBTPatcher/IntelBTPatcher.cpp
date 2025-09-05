@@ -165,14 +165,27 @@ IOReturn CIntelBTPatcher::newHostDeviceRequest(void *that, IOService *provider, 
     char hciBuf[MAX_HCI_BUF_LEN] = {0};
     
     if (data == nullptr) {
-        if (descriptor != nullptr &&
-            (getKernelVersion() < KernelVersion::Sequoia || !descriptor->prepare(kIODirectionOut))) {
-            if (descriptor->getLength() > 0) {
+        if (descriptor != nullptr) {
+            bool needsComplete = false;
+            bool shouldRead = true;
+            
+            if (getKernelVersion() >= KernelVersion::Sequoia) {
+                if (descriptor->prepare(kIODirectionOut) == kIOReturnSuccess) {
+                    needsComplete = true;
+                } else {
+                    // If prepare fails in Sequoia, skip reading to avoid panic
+                    shouldRead = false;
+                }
+            }
+            
+            if (shouldRead && descriptor->getLength() > 0) {
                 descriptor->readBytes(0, hciBuf, min(descriptor->getLength(), MAX_HCI_BUF_LEN));
                 hdrLen = (uint32_t)min(descriptor->getLength(), MAX_HCI_BUF_LEN);
             }
-            if (getKernelVersion() >= KernelVersion::Sequoia)
+            
+            if (needsComplete) {
                 descriptor->complete(kIODirectionOut);
+            }
         }
         hdr = (HciCommandHdr *)hciBuf;
         if (hdr->opcode == HCI_OP_LE_SET_SCAN_PARAM) {

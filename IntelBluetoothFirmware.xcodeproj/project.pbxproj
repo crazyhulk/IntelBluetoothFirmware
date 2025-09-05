@@ -772,7 +772,7 @@
 		F8CD9CDA2798ED5100EDBD8E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = "$(MODULE_VERSION)";
+				CURRENT_PROJECT_VERSION = 2.5.1;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"MODULE_VERSION=$(MODULE_VERSION)",
@@ -783,7 +783,7 @@
 				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
 				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/MacKernelSDK/Library/x86_64";
-				MARKETING_VERSION = "$(MODULE_VERSION)";
+				MARKETING_VERSION = 2.5.1;
 				MODULE_NAME = com.zxystd.IntelBTPatcher;
 				MODULE_START = IntelBTPatcher_kern_start;
 				MODULE_STOP = IntelBTPatcher_kern_stop;
@@ -796,7 +796,7 @@
 		F8CD9CDB2798ED5100EDBD8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = "$(MODULE_VERSION)";
+				CURRENT_PROJECT_VERSION = 2.5.1;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"MODULE_VERSION=$(MODULE_VERSION)",
 					"PRODUCT_NAME=$(PRODUCT_NAME)",
@@ -806,7 +806,7 @@
 				KERNEL_EXTENSION_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
 				KERNEL_FRAMEWORK_HEADERS = "$(PROJECT_DIR)/MacKernelSDK/Headers";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/MacKernelSDK/Library/x86_64";
-				MARKETING_VERSION = "$(MODULE_VERSION)";
+				MARKETING_VERSION = 2.5.1;
 				MODULE_NAME = com.zxystd.IntelBTPatcher;
 				MODULE_START = IntelBTPatcher_kern_start;
 				MODULE_STOP = IntelBTPatcher_kern_stop;
